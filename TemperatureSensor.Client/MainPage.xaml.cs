@@ -45,7 +45,7 @@ namespace TemperatureSensor.Client
             _dispatchTimer.Tick += _dispatchTimer_Tick;
 
             // initialize pin (GPIO pin on which you have set your temperature sensor)
-            _temperaturePin = GpioController.GetDefault().OpenPin(4, GpioSharingMode.Exclusive);
+            _temperaturePin = GpioController.GetDefault().OpenPin(2, GpioSharingMode.Exclusive);
 
             // create instance of a DHT11 
             _dhtInterface = new Dht11(_temperaturePin, GpioPinDriveMode.Input);
@@ -57,9 +57,9 @@ namespace TemperatureSensor.Client
             _startedAt = DateTimeOffset.Now;
 
             //Azure IoT Hub
-            string iotHubUri = "mondayiothub1.azure-devices.net";
-            string deviceId = "iot1";
-            string deviceKey = "Dfdr5BaIf+0uJUMLa8YBcIe74fNpBvsQ7FayoQpRXXs=";
+            string iotHubUri = "neerajhome.azure-devices.net";
+            string deviceId = "RHTemp1";
+            string deviceKey = "OW+MEyxprIUk/PW/Zw8hcNWAdrZis9PdzY0X69cbk5I=";
 
             deviceClient = DeviceClient.Create(iotHubUri,
                         AuthenticationMethodFactory.
